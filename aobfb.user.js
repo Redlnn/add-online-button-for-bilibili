@@ -14,7 +14,7 @@
 // @homepageURL https://github.com/Redlnn/add-online-button-for-bilibili
 // ==/UserScript==
 
-function getcookie(name) {
+function getCookie(name) {
     var cookieList = document.cookie.split('; ')
     for (var i = 0; i < cookieList.length; i++) {
         var temp = cookieList[i].split('=')
@@ -23,7 +23,7 @@ function getcookie(name) {
 }
 
 ;(function () {
-    if (getcookie('i-wanna-go-back') != '-1') return 0
+    if (getCookie('i-wanna-go-back') != '-1') return 0
     var swipe = document.getElementsByClassName('recommended-swipe')
     if (swipe.length == 0) return 0
     var newDiv = document.createElement('div')
