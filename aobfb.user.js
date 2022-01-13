@@ -1,13 +1,12 @@
 // ==UserScript==
-// @name        B站新版主页加入观看列表按钮
+// @name        B站新版主页加入“观看列表”按钮
 // @description Add "online" button to new homepage of Bilibili
 // @namespace   https://github.com/Redlnn/add-online-button-for-bilibili
 // @match       *://www.bilibili.com/
 // @include     *://www.bilibili.com/
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      Red_lnn
-// @description 2022/1/13 下午4:49:12
 // @license     AGPL-3.0-only
 // @run-at      document-end
 // @supportURL  https://github.com/Redlnn/add-online-button-for-bilibili
@@ -23,9 +22,9 @@ function getCookie(name) {
 }
 
 ;(function () {
-    if (getCookie('i-wanna-go-back') != '-1') return 0
+    if (getCookie('i-wanna-go-back') != '-1') return 0 // 获取cookie，不是新版首页不生效
     var swipe = document.getElementsByClassName('recommended-swipe')
-    if (swipe.length == 0) return 0
+    if (swipe.length == 0) return 0 // 获取不到轮播图所在div不生效
     var newDiv = document.createElement('div')
     newDiv.style.height = '48px'
     newDiv.style['padding-top'] = '10px'
@@ -44,6 +43,7 @@ function getCookie(name) {
     newLink.style['text-align'] = 'center'
     newLink.style.border = '1px solid #e7e7e7'
     newLink.style['border-radius'] = '5px'
+    newLink.style.transition = 'color .2s linear'
     newLink.onmouseenter = function () {
         newLink.style.color = '#00AEEC'
     }
